@@ -27,6 +27,7 @@ int main ()
 	// so that the parent process will remove all the child
 	//ps aux | grep defunct     this finds all defuncts or zombies 
 	//ps axo stat,ppid,pid,comm | grep -w defunct
+	//ps axo stat,ppid,pid,comm | grep -w defunct
 	execlp("ps","ps","-o","ppid,cmd,cpu,state", NULL);
 
 	return 0;
