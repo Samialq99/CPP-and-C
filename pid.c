@@ -28,6 +28,10 @@ int main ()
 	//ps aux | grep defunct     this finds all defuncts or zombies 
 	//ps axo stat,ppid,pid,comm | grep -w defunct
 	//ps axo stat,ppid,pid,comm | grep -w defunct
+	//use ls -la to show all hidden files and all permissions
+	// more ways to kill child $ kill -s SIGCHLD PID
+	//$ sudo kill -9 3376
+	//ps axo stat,ppid,pid,comm | grep -w defunct
 	execlp("ps","ps","-o","ppid,cmd,cpu,state", NULL);
 
 	return 0;
