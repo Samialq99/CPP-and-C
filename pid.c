@@ -32,8 +32,16 @@ int main ()
 	// more ways to kill child $ kill -s SIGCHLD PID
 	//$ sudo kill -9 3376
 	//ps axo stat,ppid,pid,comm | grep -w defunct
-	execlp("ps","ps","-o","ppid,cmd,cpu,state", NULL);
 
+	//execlp("ps","ps","-o","ppid,cmd,cpu,state", NULL);
+	// int pid2 = fork();
+    // if(pid2 == 0) {
+	 execl("/bin/ps", "-l",NULL);
+	 // "|", "grep", "defunct", NULL); 
+
+
+	//how to run exec v with array create array with char* arr[] = {"ls", "-l", "-R", "-a", NULL};
+	//then next line use execv("/bin/ls", arr);
 	return 0;
 	
 }
