@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
  int main () 
 {
@@ -11,7 +12,7 @@
 	if(pid > 0)
 	{
 		printf("This is the Parent process\n");
-		sleep(10);
+		sleep(30);
 		
 	}
 	else if (pid==0)
