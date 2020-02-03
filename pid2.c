@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-int main () 
+ int main () 
 {
 	char* args1[]={"/bin/ps", "-l",NULL};
 	pid_t pid;
@@ -19,7 +19,8 @@ int main ()
 		printf(" This is the child Process\n");
 		exit(0);
 	}
-	execv(args1[0],args1);	
+	
+	//execv(args1[0],args1);	
 	//execl("ls", NULL);
 	//execlp("/bin/ps", "-l");
 
@@ -34,11 +35,20 @@ int main ()
 	//if(pid2==0) {
 	//execlp("ps","ps","-o","ppid,cmd,cpu,state", NULL);
 
-	execv(args1[0],args1);
+	//execv(args1[0],args1);
 	//wait();
-	printf("\n");
+	//printf("\n");
 	//system("ps aux | grep defunct");
 
+	
+	//system("kill -9 $(ps -l|grep -w Z|tr -s' '|cut -d '' -f 5)");
+	//system("kill -9 $(ps -A -ostat,ppid | awk '/[zZ]/ && !a[$2]++ {print $2}')");
+	//wait(5);
+	//system("ps -l");
+system("ps -l");
+system("kill -9 $(ps -A -ostat,ppid | awk '/[zZ]/ && !a[$2]++ {print $2}')");
+	//execv(args1[0],args1);
+printf("Hello im alive\n");
 	return 0;
 	
 }
