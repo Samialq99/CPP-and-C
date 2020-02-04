@@ -47,7 +47,8 @@
 	//wait(5);
 	//system("ps -l");
 system("ps -l");
-system("kill -9 $(ps -A -ostat,ppid | awk '/[zZ]/ && !a[$2]++ {print $2}')");
+//system("kill -9 $(ps -A -ostat,ppid | awk '/[zZ]/ && !a[$2]++ {print $2}')");
+system("kill $(ps -l|grep -w Z|tr -s''|cut -d ' ' -f 5)");
 	//execv(args1[0],args1);
 printf("Hello im alive\n");
 	return 0;
