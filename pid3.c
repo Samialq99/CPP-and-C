@@ -9,8 +9,8 @@ system("./prog &");
 system("ps -l");
 sleep(3);
 system("kill -9 $(ps -l|grep -w Z|tr -s ' '|cut -d ' ' -f 5)");
-sleep(7);
-printf("\n\nupdated list of processes with their states\n\n");
+sleep(2);
+printf("\n\nNew List Zombies removed\n\n");
 system("ps -l");
 return(0);
 }
