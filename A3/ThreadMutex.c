@@ -5,6 +5,8 @@
 #define COUNT_TO  100000
 #define MAX_CORES 12   //uses 12 threads
 
+//./prog | wc -l   should see 10000 every time no random nums like MutexwithRaceproblem.c
+
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 long long i = 0;
 
