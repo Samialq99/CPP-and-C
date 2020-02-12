@@ -7,6 +7,10 @@
 void *entry_point(void *value) {
     printf("Helllo from the 2nd thread \n");
 
+    int *num =(int*) value;
+    printf("the value of value is %d", *num);
+    return NULL;
+
 }
 
 
