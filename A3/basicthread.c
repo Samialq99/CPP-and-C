@@ -4,6 +4,7 @@
 #include <pthread.h>
 #include <string.h>
 
+// you need a function for the thread to handle
 void *entry_point(void *value) {
     printf("Helllo from the 2nd thread \n");
 
@@ -16,14 +17,14 @@ void *entry_point(void *value) {
 
 int main(int argc, char **argv) {
 
-    pthread_t thread;
+    pthread_t thread; // first you must create a thread
 
-    printf("Hello from the 1st thread \n")
+    printf("Hello from the 1st thread \n");
     int num =123;
 
-    pthread_create(&thread,NULL,entry_point,&num);
+    pthread_create(&thread,NULL,entry_point,&num); //takes 4 arguments
 
-    pthread_join(thread,NULL);
+    pthread_join(thread,NULL);  //pthread join is like wait, it makes main waits for a thread to finish
 
 return EXIT_SUCCESS;
 
