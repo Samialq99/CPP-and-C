@@ -9,7 +9,7 @@ void *entry_point(void *value) {
     printf("Helllo from the 2nd thread \n");
 
     int *num =(int*) value;
-    printf("the value of value is %d", *num);
+    printf("the value of value is %d", *num); //this fn will use thread 2 to come out
     return NULL;
 
 }
@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
     pthread_t thread; // first you must create a thread
 
-    printf("Hello from the 1st thread \n");
+    printf("Hello from the 1st thread \n"); // this prints from Main thread 1
     int num =123;
 
     pthread_create(&thread,NULL,entry_point,&num); //takes 4 arguments

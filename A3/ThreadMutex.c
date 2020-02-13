@@ -8,10 +8,12 @@
 //./prog | wc -l   should see 10000 every time no random nums like MutexwithRaceproblem.c
 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
 long long i = 0;
 
 void *start_counting(void *arg) {
     for (;;) {
+        // infinite loop
         // acquire lock
         pthread_mutex_lock(&mutex);
 
@@ -21,12 +23,12 @@ void *start_counting(void *arg) {
             return NULL;
         }
 
-        ++i;
+        ++i; //increment i by 1 until we reach 10000
 
         // release lock
         pthread_mutex_unlock(&mutex);
 
-        printf("i = %lld\n", i);
+        printf("i = %lld\n", i); //output var to screen
     }
 }
 
