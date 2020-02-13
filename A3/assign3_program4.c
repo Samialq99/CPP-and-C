@@ -1,8 +1,3 @@
-/*
-    Name: Keerthana Madhavan
-    Program: COMP 3300 Assignment 1 Program1
-    Date: 07/02/2020
- */
 
 // g++ -fopenmp assign3_program4.c, compile like this
 

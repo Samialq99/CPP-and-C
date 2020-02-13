@@ -1,8 +1,3 @@
-/*
-    Name: Keerthana Madhavan
-    Program: COMP 3300 Assignment 1 Program 2
-    Date: 07/02/2020
- */
 
 #include <stdio.h>
 #include <stdlib.h>

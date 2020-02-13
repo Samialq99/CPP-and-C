@@ -1,10 +1,5 @@
 
 
-/*
-    Name: Keerthana Madhavan
-    Program: COMP 3300 Assignment 1 Program1
-    Date: 07/02/2020
- */
 
 // compile with this gcc -pthread assign3_program1.c -lm
 
