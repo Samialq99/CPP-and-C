@@ -9,6 +9,11 @@
 #include <time.h>
 #include <pthread.h>
 
+
+// Names : Sami Alquraishi 102248298 /Anurag Sake 105124351
+// compile with this gcc assign3_program4.c -o assignp1 -lpthread -lm -fopenmp
+
+
 #define NUM_OF_POINTS 1000000
 #define THREADCOUNT 1
 

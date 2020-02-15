@@ -1,6 +1,6 @@
 
 
-
+// Names : Sami Alquraishi 102248298 /Anurag Sake 105124351
 // compile with this gcc assign3_program4.c -o assignp1 -lpthread -lm -fopenmp
 
 #include <stdio.h>
