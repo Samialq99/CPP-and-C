@@ -1,7 +1,7 @@
 
 
 
-// compile with this gcc -pthread assign3_program1.c -lm
+// compile with this gcc assign3_program4.c -o assignp1 -lpthread -lm -fopenmp
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,30 +9,30 @@
 #include <time.h>
 #include <pthread.h>
 
-//#define NUM_OF_POINTS 1000000
-#define NUM_OF_THREADS 2
 
-void *runner(void *param);
+#define THREADCOUNT 2
+
+void *MonteCarlo(void *param);
 
 int num_of_points_calc(int NUM_OF_POINTS);
 
-int circle_count = 0; // points in the circle
+int circle_count = 0; 
 
-/* Generates a double precision random number */
+// WE ARE USING THE PROVIDED ALGORITHM IN THE ASSIGNMENT TEXT
 double random_double()
 {
-    return (random() / ((double)RAND_MAX + 1)); // generates a double precision random number
+    return (random() / ((double)RAND_MAX + 1)); 
 
 }
 
 int main(int argc, const char *argv[])
 {
 
-	int num_points = 0;
-	printf("Enter the number of points: ");
-	scanf("%d", &num_points);
-	printf("Multi-threading simulation for point %d\n", num_points);
-	num_of_points_calc(num_points);
+	int points = 0;
+	printf("Input the number of points: ");
+	scanf("%d", &points);
+	printf("Multi-threading simulation for point %d\n", points);
+	num_of_points_calc(points);
 	return 0;
 
 }
@@ -42,40 +42,40 @@ int main(int argc, const char *argv[])
 
 int num_of_points_calc(int NUM_OF_POINTS)
 {
-	int points_per_thread = NUM_OF_POINTS /NUM_OF_THREADS;
+	int points_per_thread = NUM_OF_POINTS /THREADCOUNT;
     int i;
     
     double PI;
     
-    pthread_t workers[NUM_OF_THREADS];
+    pthread_t workers[THREADCOUNT];
     
-    /* seed the random number generator*/
+    // WE SEED SRANDOM FN TO GET A DIFFERENT RANDOM POINT INSTEAD OF THE SAME
     
     srandom((unsigned)time(NULL));
     clock_t begin = clock();
-    for(i = 0; i < NUM_OF_THREADS; i++)
+    for(i = 0; i < THREADCOUNT; i++)
     {
-        pthread_create(&workers[i], 0, runner, &points_per_thread);
+        pthread_create(&workers[i], 0, MonteCarlo, &points_per_thread);
     }
     
-    for(i = 0; i < NUM_OF_THREADS; i++)
+    for(i = 0; i < THREADCOUNT; i++)
     {
         pthread_join(workers[i], NULL);
     }
     
-    // estimate the PI value
+    // USING THE FORUMLAE PROVIDED 
     
     PI = (4.0 * circle_count )/NUM_OF_POINTS;
     clock_t end = clock();
     double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
-    printf("Number of Points = %d\n", NUM_OF_POINTS);
-    printf("PI = %f\n", PI);
-    printf("time = %f\n", time_spent );
+    printf("The Number of Points = %d\n", NUM_OF_POINTS);
+    printf("Value of PI = %f\n", PI);
+    printf("run time = %f\n", time_spent );
     
 
    }
 
-void *runner(void *param)
+void *MonteCarlo(void *param)
 {
     int POINTS;
     POINTS = *((int *)param);
@@ -84,21 +84,19 @@ void *runner(void *param)
     
     for(i = 0; i < POINTS; i++)
     {
-        /* generate random numbers between -1.0 and +1.0
-            to obtain a random (x,y) point*/
+        
         
         x = random_double() * 2.0 - 1.0;
         y  = random_double() * 2.0 - 1.0;
-        
-        /* to check is (x,y) point within the circle*/
-        if(sqrt(x*x + y*y)< 1.0)
+        float z=0;
+        z=sqrt(x*x + y*y);
+        if(z< 1.0)
         {
             ++hit_count;
         }
     }
     
     
-    circle_count += hit_count;
+    circle_count = circle_count+hit_count;
     
-    pthread_exit(0);
 }

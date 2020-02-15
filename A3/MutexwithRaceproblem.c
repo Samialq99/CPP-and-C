@@ -10,6 +10,7 @@
 // gcc -o prog1 MutexwithRaceproblem.c -lpthread -lm
 //./prog1 
 //run it again to get max numbers with ./prog1 | wc -l
+// wc is for (print newline) -l returns the number of new line characters \n
 // you will get numbers higher than 100000 why ????
 // compare this to the ThreadMutex.c program which is fixed.
 
