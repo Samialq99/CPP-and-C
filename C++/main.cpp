@@ -1,5 +1,5 @@
 //remember to comile with g++ after each change 
-// in visual studio #include "stdafx" must be the first include
+// in visual studio #include "stdafx.h" must be the first include
 
 #include <cstdlib>
 #include <iostream>
@@ -16,7 +16,12 @@ using namespace std;
 int main(int argc, const char** argv) {
 
     cout << "hello sami C++ do it dont dream it" <<endl;
-
+    cout << "enter an age number pls" <<endl;
+    string sAge;
+    cin >> sAge;
+    cout << sAge << endl;
+    int nAge =stoi(sAge); //string to int
+    cout <<nAge <<endl;
     char letterZ = 'z'; //alpha is a letter 
     char letterB = ',';
 	char num5 = '5';
@@ -28,6 +33,22 @@ int main(int argc, const char** argv) {
      cout << "is num5 a number  \n" << isdigit(num5) <<endl; //returns true if digit
 
     cout << "is aspace a space \n" << isspace(aSpace) <<endl; //returns true if space
+
+    if((nAge <= 39) && (nAge>=20))  {
+        cout <<"this is an important young man\n";
+    } else if ((nAge <= 70) && (nAge>39))
+    {
+     cout <<"you are a boomer now\n";  
+    } else if ((nAge > 70) && (nAge<=120))
+    {
+     cout <<"you are a DEAD now\n";  
+    }
+
+
+    bool canIvote = (nAge>=18) ? true : false;
+    //out.setf(ios::boolalpha); // changes true false from numbers to word true or false
+    cout <<"can I vote ? :" << (canIvote? "YES": "no") << endl;
+
 
 
     //in c++ true is any value above 0, so you can get an 8 for example
