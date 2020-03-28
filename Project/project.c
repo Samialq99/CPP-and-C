@@ -1,3 +1,12 @@
+//Name : Sami Alquraishi
+//Name : Anurag Saki
+//Name : Taki Farooqi
+
+//  How to run this project 
+//  use this command in terminal 
+//  ./prog addresses.txt output.txt BACKING_STORE.bin
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
