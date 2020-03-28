@@ -48,9 +48,9 @@ We print the cpu clock time to the screen as well.
     clock_t end = clock();
     
     
-    double time_spent;
-    time_spent= (double) (end-begin) /CLOCKS_PER_SEC;
-    printf("total CPU time(run again if you get zeros): %f\n", time_spent);
+    double time_taken;
+    time_taken= (double) (end-begin) /CLOCKS_PER_SEC;
+    printf("total CPU time(run again if you get zeros): %f\n", time_taken);
     
     
     return 0;
